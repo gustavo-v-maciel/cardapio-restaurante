@@ -1,2 +1,5 @@
 # cardapio-restaurante
-Este Cardápio foi desenvolvido com o objetivo de praticar e aprimorar técnicas de Algoritmos, Lógica e Abstração
+
+Cardápio desenvolvido em C
+
+Este Cardápio foi desenvolvido para um restaurante fictício com o objetivo de praticar e aprimorar técnicas de Algoritmos, Lógica e Abstração
