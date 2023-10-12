@@ -1,0 +1,256 @@
+//IMPORTANDO BIBLIOTECAS
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+#include <unistd.h>
+
+
+int main(void){
+
+//SETA O IDIOMA PARA PORTUGUÊS DO BRASIL
+setlocale(LC_ALL, "Portuguese");
+
+    //DEFINIÇÃO DAS VARIÁVEIS - FORAM USADAS TIPOS DE DADOS INT -OCUPA 4 BYTES DE MEMÓRIA- E FLOAT -TAMBÉM OCUPA 4 BYTES DE MEMÓRIA-
+    int menu = 0, porcao = 0, sobremesa = 0, bebidas = 0, decisao = 0, fim = 0;
+    float batata = 12.50 , frango = 16.80, tilapia = 32.99, alcatra = 65.99;
+    float bolo = 7.99, pudim = 9.49, brigadeiro = 1.50, petit = 18.50;
+    float agua = 2.00, suco = 8.49, coca = 6.99, chopp = 12.99;
+    float total = 0;
+
+            //INÍCIO DO LAÇO DE REPETIÇÃO PRINCIPAL
+            do{
+                printf("---------- PORÇÕES & CIA ----------\n\n");
+                printf("----------------MENU---------------\n");
+                printf("| 1- Porções                       |\n");
+                printf("| 2- Sobremesa                     |\n");
+                printf("| 3- Bebidas                       |\n");
+                printf("|    Qual opção deseja abrir?      |\n");
+                printf("-----------------------------------\n");
+                scanf("%d", &menu);
+
+
+                    if((menu == 1) || (menu == 2) || (menu == 3)){
+
+                        //OPÇÃO PORÇÃO
+                        if(menu==1){
+                        printf("--------------PORÇÃO----------------\n");
+                        printf("| 1- Batata Frita     |   R$12,50  |\n");
+                        printf("| 2- Frango Frito     |   R$16,80  |\n");
+                        printf("| 3- Filé de tilápia  |   R$32,99  |\n");
+                        printf("| 4- Alcatra          |   R$65,99  |\n");
+                        printf("|    Qual opção deseja abrir?      |\n");
+                        printf("-----------------------------------\n");
+                        scanf("%d", &porcao);
+
+                            if(porcao == 1){
+                                printf("\nBatata Frita - R$12,50 | Adicionada ao pedido\n");
+                                //VARIÁVEL TOTAL ASSUME E RECEBE O VALOR FLOAT DA VARIÁVEL BATATA
+                                total += batata;
+                                }
+
+                            if(porcao == 2){
+                                printf("\nFrango Frito - R$16,80 | Adicionada ao pedido\n");
+                                //VARIÁVEL TOTAL ASSUME E RECEBE O VALOR FLOAT DA VARIÁVEL FRANGO
+                                total += frango;
+                                }
+
+                            if(porcao == 3){
+                                printf("\nFilé de Tilápia - R$32,99 | Adicionada ao pedido\n");
+                                //VARIÁVEL TOTAL ASSUME E RECEBE O VALOR FLOAT DA VARIÁVEL TILAPIA
+                                total += tilapia;
+                                }
+
+                            if(porcao == 4){
+                                printf("\nAlcatra - R$65,99 | Adicionada ao pedido\n");
+                                //VARIÁVEL TOTAL ASSUME E RECEBE O VALOR FLOAT DA VARIÁVEL ALCATRA
+                                total += alcatra;
+                                }
+
+                        //SE OPÇÃO DIGITADA FOR DIFERENTE DE 1,2,3 e 4, APAGA A TELA E IMPRIME A MENSAGEM DE OPÇÃO INVÁLIDA
+                           if((porcao!= 1) && (porcao != 2) && (porcao != 3) && (porcao != 4)){
+
+                                printf("Opção inválida. Por favor, tecle ENTER para selecionar novamente!\n\n");
+                                //UTILIZA A FUNÇÃO GETCHAR(); DUAS VEZES PARA QUE O SOFTWARE AGUARDE ATÉ O USUÁRIO TECLAR ENTER PARA CONTINUAR
+                                getchar();
+                                getchar();
+                                system("cls");
+                            }
+                            else{
+                                printf("\nDeseja algo mais?\n");
+                                printf("1- Sim\n");
+                                printf("2- Não\n");
+                                scanf("%d", &decisao);
+
+                                //SE SELECIONADO 1 MANTÉM DENTRO DO LAÇO DE REPETÇÃO
+                                if(decisao == 1){
+                                    system("cls");
+                                }
+
+                                //SE SELECIONADO 2 SAI DO LAÇO DE REPETIÇÃO
+                                if(decisao == 2){
+                                    menu = fim;
+                                    system("cls");
+
+                                    /* AO SAIR DO LAÇO, TENDO O PEDIDO ENCERRADO, SERÁ APRESENTADO O
+                                        VALOR FLOAT DA VARIÁVEL TOTAL, CONFORME A MESMA FOI ACUMULANDO
+                                        VALORES DE ACORDO COM O PEDIDOS */
+                                    printf("\nTotal do pedido: R$%5.2f", total);
+                                    printf("\nSEU PEDIDO ESTÁ SENDO PREPARADO!\n");
+                                    printf("\nOBRIGADO PELA CONFIANÇA!!!\n");
+                                }
+                            }
+                        }
+
+                //OPÇÃO SOBREMESA
+                if(menu == 2){
+
+                    printf("-------------SOBREMESA--------------\n");
+                    printf("| 1- Bolo de Chocolate  |  R$7,99  |\n");
+                    printf("| 2- Pudim              |  R$9,49  |\n");
+                    printf("| 3- Brigadeiro         |  R$1,50  |\n");
+                    printf("| 4- Petit Gateau       |  R$18,50 |\n");
+                    printf("|    Qual opção deseja abrir?      |\n");
+                    printf("-----------------------------------\n");
+                    scanf("%d", &sobremesa);
+
+                            if(sobremesa == 1){
+                                printf("\nBolo de Chocolate - R$7,99 | Adicionada ao pedido\n");
+                                //VARIÁVEL TOTAL ASSUME E RECEBE O VALOR FLOAT DA VARIÁVEL BOLO
+                                total += bolo;
+                              }
+                            if(sobremesa == 2){
+                                printf("\nPudim - R$9,49 | Adicionada ao pedido\n");
+                                //VARIÁVEL TOTAL ASSUME E RECEBE O VALOR FLOAT DA VARIÁVEL PUDIM
+                                total += pudim;
+                              }
+                            if(sobremesa == 3){
+                                printf("\nBrigadeiro - R$1,50 | Adicionada ao pedido\n");
+                                //VARIÁVEL TOTAL ASSUME E RECEBE O VALOR FLOAT DA VARIÁVEL BRIGAGEIRO
+                                total += brigadeiro;
+                              }
+                            if(sobremesa == 4){
+                                printf("\nPetit Gateau - R$18,50 | Adicionada ao pedido\n");
+                                //VARIÁVEL TOTAL ASSUME E RECEBE O VALOR FLOAT DA VARIÁVEL PETIT
+                                total += petit;
+                              }
+
+                            //SE OPÇÃO DIGITADA FOR DIFERENTE DE 1,2,3 e 4, APAGA A TELA E IMPRIME A MENSAGEM DE OPÇÃO INVÁLIDA
+                             if((sobremesa != 1) && (sobremesa != 2) && (sobremesa != 3) && (sobremesa != 4)){
+
+                                printf("Opção inválida. Por favor, tecle ENTER para selecionar novamente!\n\n");
+                                //UTILIZA A FUNÇÃO GETCHAR(); DUAS VEZES PARA QUE O SOFTWARE AGUARDE ATÉ O USUÁRIO TECLAR ENTER PARA CONTINUAR
+                                getchar();
+                                getchar();
+                                system("cls");
+                             }
+
+                        else{
+                        printf("\nDeseja algo mais?\n");
+                        printf("1- Sim\n");
+                        printf("2- Não\n");
+                        scanf("%d", &decisao);
+
+                            //SE SELECIONADO 1 MANTÉM DENTRO DO LAÇO DE REPETÇÃO
+                            if(decisao == 1){
+                            system("cls");}
+
+                            //SE SELECIONADO 2 SAI DO LAÇO DE REPETIÇÃO
+                            if(decisao == 2){
+                            menu = fim;
+                            system("cls");
+
+                            /* AO SAIR DO LAÇO, TENDO O PEDIDO ENCERRADO, SERÁ APRESENTADO O
+                                VALOR FLOAT DA VARIÁVEL TOTAL, CONFORME A MESMA FOI ACUMULANDO
+                                VALORES DE ACORDO COM O PEDIDOS */
+                            printf("\nTotal do pedido: R$%5.2f", total);
+                            printf("\nSEU PEDIDO ESTÁ SENDO PREPARADO!\n");
+                            printf("\nOBRIGADO PELA CONFIANÇA!!!\n");
+                        }
+                    }
+                }
+
+                //OPÇÃO BEBIDAS
+                if(menu == 3){
+
+                    printf("--------------BEBIDAS-------------\n");
+                    printf("| 1- Água            |   R$2,00   |\n");
+                    printf("| 2- Suco de Laranja |   R$8,49   |\n");
+                    printf("| 3- Coca-Cola       |   R$6,99   |\n");
+                    printf("| 4- Chopp           |   R$12,99  |\n");
+                    printf("|    Qual opção deseja abrir?     |\n");
+                    printf("-----------------------------------\n");
+                    scanf("%d", &bebidas);
+
+                            if(bebidas == 1){
+                                printf("\nÁgua - R$2,00 | Adicionada ao pedido\n");
+                                //VARIÁVEL TOTAL ASSUME E RECEBE O VALOR FLOAT DA VARIÁVEL AGUA
+                                total += agua;
+                             }
+                            if(bebidas == 2){
+                                printf("\nSuco de Laranja - R$8,49 | Adicionada ao pedido\n");
+                                //VARIÁVEL TOTAL ASSUME E RECEBE O VALOR FLOAT DA VARIÁVEL SUCO
+                                total += suco;
+                             }
+                            if(bebidas == 3){
+                                printf("\nCoca-Cola - R$6,99 | Adicionada ao pedido\n");
+                                //VARIÁVEL TOTAL ASSUME E RECEBE O VALOR FLOAT DA VARIÁVEL COCA
+                                total += coca;
+                             }
+                            if(bebidas == 4){
+                                printf("\nChopp - R$12,99 | Adicionada ao pedido\n");
+                                //VARIÁVEL TOTAL ASSUME E RECEBE O VALOR FLOAT DA VARIÁVEL CHOPP
+                                total += chopp;
+                             }
+
+                            //SE OPÇÃO DIGITADA FOR DIFERENTE DE 1,2,3 e 4, APAGA A TELA E IMPRIME A MENSAGEM DE OPÇÃO INVÁLIDA
+                            if((bebidas!= 1) && (bebidas != 2) && (bebidas != 3) && (bebidas != 4)){
+
+                                printf("Opção inválida. Por favor, tecle ENTER para selecionar novamente!\n\n");
+                                //UTILIZA A FUNÇÃO GETCHAR(); PARA QUE O SOFTWARE AGUARDE ATÉ O USUÁRIO TECLAR ENTER PARA CONTINUAR
+                                getchar();
+                                getchar();
+                                system("cls");
+                            }
+                            else{
+                                printf("\nDeseja algo mais?\n");
+                                printf("1- Sim\n");
+                                printf("2- Não\n");
+                                scanf("%d", &decisao);
+
+                                //SE SELECIONADO 1 MANTÉM DENTRO DO LAÇO DE REPETÇÃO
+                                if(decisao == 1){
+                                    system("cls");
+                                }
+
+                                //SE SELECIONADO 2 SAI DO LAÇO DE REPETIÇÃO
+                                if(decisao == 2){
+                                    menu = fim;
+                                    system("cls");
+
+                                    /* AO SAIR DO LAÇO, TENDO O PEDIDO ENCERRADO, SERÁ APRESENTADO O
+                                        VALOR FLOAT DA VARIÁVEL TOTAL, CONFORME A MESMA FOI ACUMULANDO
+                                        VALORES DE ACORDO COM O PEDIDOS */
+                                    printf("\nTotal do pedido: R$%5.2f", total);
+                                    printf("\nSEU PEDIDO ESTÁ SENDO PREPARADO!\n");
+                                    printf("\nOBRIGADO PELA CONFIANÇA!!!\n");
+                                }
+                            }
+                        }
+                    }
+                    else{
+                        printf("Opção inválida. Por favor, tecle ENTER para selecionar novamente!\n\n");
+                        //UTILIZA A FUNÇÃO GETCHAR(); DUAS VEZES PARA QUE O SOFTWARE AGUARDE ATÉ O USUÁRIO TECLAR ENTER PARA CONTINUAR
+                        getchar();
+                        getchar();
+                        system("cls");
+                    }
+
+        /* FIM DO LAÇO DE REPETIÇÃO PRINCIPAL.
+        PARA SAIR DO LAÇO, A VARIÁVEL MENU DEVE SER DIFERENTE
+        DA VARIÁVEL FIM.
+        ISSO OCORRE QUANDO O USUÁRIO SELECIONA A OPÇÃO 2 QUANDO
+        RECEBE A PERGUNTA "DESEJA ALGO MAIS?" */
+        }while(menu != fim);
+
+return(0);
+}
